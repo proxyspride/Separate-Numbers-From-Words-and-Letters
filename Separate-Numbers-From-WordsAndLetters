@@ -57,5 +57,7 @@ function filterLists(array) {
 
 
 
-// Print the resulting lists
+/* Prints:
+[ 3, 10, 25, 73, 101 ]
+[ 'ALISON', 'ANTONIO', 'B', 'NARUTO', 'O', 'V' ] */
 filterLists(listOfLists);
