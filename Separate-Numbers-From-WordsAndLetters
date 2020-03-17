@@ -1,0 +1,61 @@
+let listOfLists = [];
+let smallList = ['v', 'b', 'o', 10, 73];
+
+
+// 'listOfLists' now contains these: (including the 'smallList' from above)
+listOfLists.push('Antonio');
+listOfLists.push(3);
+listOfLists.push(25);
+listOfLists.push(smallList);
+listOfLists.push(101);
+listOfLists.push('Naruto');
+listOfLists.push('Alison');
+
+
+// Creates an empty list for Numbers, and another for Names and letters
+let onlyNamesAndLetters = [];
+let onlyNumbers = [];
+
+
+/* Iterate through the list and any lists in the list and add numbers to 'onlyNumbers',
+and anything else to 'onlyNamesAndLetters', without changing the original list. */
+function filterLists(array) {
+  let tempList = array;
+  let tempNum;
+  let tempNameOrLetter;
+  //console.log(tempList);
+  for (let i = 0; i < tempList.length; i++) {
+    if (typeof tempList[i] === 'number') {
+      tempNum = tempList[i];
+      onlyNumbers.push(tempNum);
+    } else if (typeof tempList[i] === 'string') {
+        tempNameOrLetter = tempList[i];
+        onlyNamesAndLetters.push(tempNameOrLetter.toUpperCase());
+    } else if (Array.isArray(tempList[i])) {
+        for (let j = 0; j < tempList[i].length; j++) {
+          if (typeof tempList[i][j] === 'number') {
+            tempNum = tempList[i][j];
+            onlyNumbers.push(tempNum);
+          } else if (typeof tempList[i][j] === 'string') {
+              tempNameOrLetter = tempList[i][j];
+              onlyNamesAndLetters.push(tempNameOrLetter.toUpperCase());
+          }
+        }
+    }
+  }
+  for (let a = 0; a < onlyNamesAndLetters.length; a++) {
+
+  }
+  // Sort and log the resulting arrays to the console
+  onlyNumbers.sort(function(a, b){return a - b});
+  onlyNamesAndLetters.sort();
+  console.log(onlyNumbers);
+  console.log(onlyNamesAndLetters);
+}
+
+
+
+
+
+// Print the resulting lists
+filterLists(listOfLists);
